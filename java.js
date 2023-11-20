@@ -1,43 +1,20 @@
 function validarFormulario() {
-    var campoA = document.getElementById('campoA').value;
-    var campoB = document.getElementById('campoB').value;
-
-    // Convertendo os valores para números
-    campoA = parseFloat(campoA);
-    campoB = parseFloat(campoB);
-
-    var formulario = document.getElementById('meuFormulario');
+    var campoA = parseFloat(document.getElementById('campoA').value);
+    var campoB = parseFloat(document.getElementById('campoB').value);
 
     if (isNaN(campoA) || isNaN(campoB)) {
-        alert('Por favor, insira números válidos em ambos os campos.');
+        exibirMensagem('Por favor, insira números válidos em ambos os campos.', 'mensagem-invalida');
     } else {
         if (campoB > campoA) {
-            alert('Formulário válido! B é maior que A.');
+            exibirMensagem('Formulário válido! B é maior que A.', 'mensagem-valida');
         } else {
-            alert('Formulário inválido! B deve ser maior que A.');
+            exibirMensagem('Formulário inválido! B deve ser maior que A.', 'mensagem-invalida');
         }
     }
 }
-function validarFormulario() {
-    var campoA = document.getElementById('campoA').value;
-    var campoB = document.getElementById('campoB').value;
 
-    campoA = parseFloat(campoA);
-    campoB = parseFloat(campoB);
-
-    var formulario = document.getElementById('meuFormulario');
+function exibirMensagem(mensagem, classe) {
     var mensagemElemento = document.getElementById('mensagem');
-
-    if (isNaN(campoA) || isNaN(campoB)) {
-        mensagemElemento.textContent = 'Por favor, insira números válidos em ambos os campos.';
-        mensagemElemento.className = 'mensagem-invalida';
-    } else {
-        if (campoB > campoA) {
-            mensagemElemento.textContent = 'Formulário válido! B é maior que A.';
-            mensagemElemento.className = 'mensagem-valida';
-        } else {
-            mensagemElemento.textContent = 'Formulário inválido! B deve ser maior que A.';
-            mensagemElemento.className = 'mensagem-invalida';
-        }
-    }
+    mensagemElemento.textContent = mensagem;
+    mensagemElemento.className = classe;
 }
