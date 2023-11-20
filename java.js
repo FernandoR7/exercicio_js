@@ -1,3 +1,12 @@
+const form = document.getElementById('meuFormulario');
+
+form.addEventListener('submit', function(e) {
+    e.preventDefault(); // Evita a atualização da página ao enviar o formulário
+
+    // Restante do código
+    validarFormulario();
+});
+
 function validarFormulario() {
     var campoA = parseFloat(document.getElementById('campoA').value);
     var campoB = parseFloat(document.getElementById('campoB').value);
